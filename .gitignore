@@ -105,3 +105,6 @@ dmypy.json
 
 # Python virtual environment directory
 env/
+
+# Flask environment variable
+.flaskenv
