@@ -1,4 +1,4 @@
-module github.com/rezaramadhan/daily-trivia
+module dailytrivia
 
 go 1.14
 
