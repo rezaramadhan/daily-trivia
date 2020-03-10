@@ -1,10 +1,23 @@
 from flask import Flask, render_template
 
+import requests
+import json
+
 app = Flask(__name__)
+
+HOST = 'localhost'
+PORT = '8080'
+
+def get_trivia():
+    url = f'http://{HOST}:{PORT}/today'
+    resp = requests.get(url)
+    json_content = json.loads(resp.content)
+    return json_content
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    data = get_trivia()
+    return render_template('index.html', trivia=data['trivia'], d=data['day'], m=data['month'])
 
 @app.route('/week')
 @app.route('/month')
