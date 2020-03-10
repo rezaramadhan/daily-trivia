@@ -2,14 +2,15 @@ from flask import Flask, render_template
 
 import requests
 import json
+import os
 
 app = Flask(__name__)
 
-HOST = 'localhost'
-PORT = '8080'
+API_HOST = os.environ.get("API_HOST", default='localhost')
+API_PORT = os.environ.get("API_PORT", default='8080')
 
 def get_trivia():
-    url = f'http://{HOST}:{PORT}/today'
+    url = f'http://{API_HOST}:{API_PORT}/today'
     resp = requests.get(url)
     json_content = json.loads(resp.content)
     return json_content
