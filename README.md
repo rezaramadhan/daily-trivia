@@ -22,15 +22,26 @@
   - Be creative, but please do tell us about it in the README
 </details>
 
-## Usage Guide
+## Build Guide
+Use the provided Makefile to build both the frontend and backend. Some example commands are:
+```
+  # build and push frontend & backend docker image
+  $ make all
 
-## System Architecture
+  # only build frontend & backend docker image
+  $ make build
 
-## Frontend
-### Build Guide
+  # only push frontend image
+  $ make push_frontend
+```
 
 ## Backend
-### Build Guide
-### API Reference
-
-## License
+The API is accessible on `/today` path. The provided path will give trivia based on today's date.
+The API will return the following JSON data:
+```
+{
+  'date': 1,
+  'month': 4,
+  'trivia': '1st of April is known as April Mop.'
+}
+```
